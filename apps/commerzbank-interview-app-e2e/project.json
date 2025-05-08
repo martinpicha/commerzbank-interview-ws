@@ -1,0 +1,10 @@
+{
+  "name": "commerzbank-interview-app-e2e",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/commerzbank-interview-app-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["commerzbank-interview-app"],
+  "// targets": "to see all targets run: nx show project commerzbank-interview-app-e2e --web",
+  "targets": {}
+}
