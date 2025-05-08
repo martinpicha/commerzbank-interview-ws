@@ -14,7 +14,15 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@commerzbank-interview-ws/data-access-transactions": [
+        "libs/transactions/src/index.ts"
+      ],
+      "@commerzbank-interview-ws/feature-dashboard": [
+        "libs/dashboard/src/index.ts"
+      ],
+      "@commerzbank-interview-ws/ui-cards": ["libs/shared/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
