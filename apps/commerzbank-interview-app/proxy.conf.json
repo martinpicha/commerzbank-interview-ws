@@ -1,0 +1,14 @@
+{
+  "/transactions": {
+    "target": "https://periwinkle-separated-sodalite.glitch.me",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  },
+  "/transfer": {
+    "target": "https://periwinkle-separated-sodalite.glitch.me",
+    "secure": false,
+    "changeOrigin": true,
+    "logLevel": "debug"
+  }
+}
