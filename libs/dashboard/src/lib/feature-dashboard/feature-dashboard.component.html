@@ -2,7 +2,7 @@
   <div class="main-column">
     <ui-transfer-form (transfer)="onTransfer($event)"></ui-transfer-form>
     <!-- Spacing handled by gap in .main-column -->
-    <ui-transaction-list [transactions]="transactions$ | async"></ui-transaction-list>
+    <ui-transaction-list [transactions]="transactions$ | async" > <!-- Pass transactions -->></ui-transaction-list>
 
     <div *ngIf="loading$ | async" class="status-indicator loading-indicator">Loading transactions...</div>
     <div *ngIf="error$ | async as error" class="status-indicator error-indicator">

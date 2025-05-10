@@ -88,10 +88,10 @@
   border-radius: 8px;
   cursor: pointer;
   transition: background-color 0.2s;
-  width: 100%;
+  width: 40%;
 
   &:hover:not(:disabled) {
-    background-color: #1a736a;
+    background-color: var(--hover-background-color);
   }
   &:disabled {
     background-color: #979797; // Fallback disabled color

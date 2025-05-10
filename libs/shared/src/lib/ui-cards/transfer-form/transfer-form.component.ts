@@ -28,22 +28,28 @@ export class TransferFormComponent {
 
   onSubmit(): void {
     if (this.transferForm.valid) {
-      const randomReceiverAccount = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
-      const payload: CreateTransactionPayload = {
-        amount: this.transferForm.value.amount,
-        receiverAccount: randomReceiverAccount,
-      };
-      this.transfer.emit(payload);
-      this.transferForm.reset();
-      // Optional: Mark as pristine and untouched if needed after reset
-      // Object.keys(this.transferForm.controls).forEach(key => {
-      //   this.transferForm.get(key)?.markAsPristine();
-      //   this.transferForm.get(key)?.markAsUntouched();
-      // });
-      // this.transferForm.updateValueAndValidity();
+      const amountToTransfer = this.transferForm.value.amount;
+      if (this.availableFunds >= amountToTransfer) { // Basic check
+        const randomReceiverAccount = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+        const payload: CreateTransactionPayload = {
+          amount: amountToTransfer,
+          receiverAccount: randomReceiverAccount,
+        };
+        this.transfer.emit(payload);
+
+        // ---- SIMULATE BALANCE UPDATE (Local Mock) ---- better way would be wait for actual amount from backend
+        this.availableFunds -= amountToTransfer;
+        // ---- END SIMULATE ----
+
+        this.transferForm.reset();
+      } else {
+        // Handle insufficient funds - maybe add an error to the form
+        this.transferForm.get('amount')?.setErrors({ insufficientFunds: true });
+        console.error("Insufficient funds for transfer");
+      }
     } else {
-        // Mark all fields as touched to show errors if form submitted prematurely
         this.transferForm.markAllAsTouched();
     }
+
   }
 }

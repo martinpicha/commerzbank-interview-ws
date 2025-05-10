@@ -47,8 +47,8 @@
 
 // --- SECONDARY BUTTON ---
 .btn-secondary {
-  background-color: white; // White background
-  color: var(--primary-color); // Text color is the primary color
+  background-color: #e5faff; // White background
+  color: black; // Text color is the primary color
   border: none;
   padding: 10px 20px;
   font-size: 0.9rem;
@@ -60,7 +60,7 @@
   &:hover {
     // Consider using a slight darken on the white or an interaction effect
     // For simplicity, just a subtle background change:
-    background-color: #d5d4d4; // Slightly off-white on hover
+    background-color: var(--hover-background-color); // Slightly off-white on hover
   }
 }
 

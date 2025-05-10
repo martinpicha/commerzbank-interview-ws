@@ -11,11 +11,13 @@ $green-pill-base: #27ae60; // This was var(--green-text-color)
 :root {
   --background-color: #f0f2f5;
   --card-background: #ffffff;
-  --primary-color: #26A69A;
+  --primary-color: #137160;
   --primary-text-color: #333;
   --secondary-text-color: #777;
   --green-text-color: #{$green-pill-base}; // Expose SCSS var as CSS var if needed elsewhere
   --red-text-color: #e74c3c;
+
+  --hover-background-color: #1fbda0; // Light blue for hover effect
 
   // CSS Variables for Pill TEXT colors (can still use these if desired, or use SCSS vars directly in .pill)
   --blue-pill-text-color: #{$blue-pill-base};
