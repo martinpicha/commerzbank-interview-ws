@@ -1,0 +1,56 @@
+:host { display: block; }
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .date-who {
+    flex-basis: 35%;
+    display: flex;
+    align-items: center;
+    .date {
+      color: var(--secondary-text-color);
+      margin-right: 1rem;
+      min-width: 4rem;
+    }
+    .who {
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .type-category {
+    flex-basis: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    .type {
+      color: var(--secondary-text-color);
+      white-space: nowrap;
+    }
+    .pill {
+        flex-shrink: 0;
+    }
+  }
+
+  .amount {
+    flex-basis: 25%;
+    text-align: right;
+    font-weight: 700;
+    white-space: nowrap;
+    &.green {
+      color: var(--green-text-color);
+    }
+  }
+}

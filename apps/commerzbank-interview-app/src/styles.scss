@@ -1,1 +1,92 @@
-/* You can add global styles to this file, and also import other style files */
+/* apps/commerzbank-interview-app/src/styles.scss */
+@use 'sass:color'; // Crucial for using color.adjust()
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+// --- SCSS Variables for Pill Base Colors ---
+$blue-pill-base: #3498db;
+$pink-pill-base: #e91e63;
+$orange-pill-base: #f39c12;
+$green-pill-base: #27ae60; // This was var(--green-text-color)
+
+:root {
+  --background-color: #f0f2f5;
+  --card-background: #ffffff;
+  --primary-color: #26A69A;
+  --primary-text-color: #333;
+  --secondary-text-color: #777;
+  --green-text-color: #{$green-pill-base}; // Expose SCSS var as CSS var if needed elsewhere
+  --red-text-color: #e74c3c;
+
+  // CSS Variables for Pill TEXT colors (can still use these if desired, or use SCSS vars directly in .pill)
+  --blue-pill-text-color: #{$blue-pill-base};
+  --pink-pill-text-color: #{$pink-pill-base};
+  --orange-pill-text-color: #{$orange-pill-base};
+  --green-pill-text-color: #{$green-pill-base};
+
+  --border-radius: 12px;
+  --card-padding: 20px;
+  --element-spacing: 16px;
+}
+
+body {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-text-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+input, button {
+  font-family: inherit;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+
+  .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+  }
+
+  // --- REVISED PILL STYLES USING SCSS VARS and SASS:COLOR ---
+  &.food {
+    // Using color.adjust to make the background lighter by reducing alpha (making it more transparent)
+    // The $alpha value is relative to the current alpha. A negative value decreases opacity.
+    // -0.8 means it will be 20% opaque (1.0 - 0.8 = 0.2)
+    background-color: color.adjust($blue-pill-base, $alpha: -0.8);
+    color: $blue-pill-base; // Or var(--blue-pill-text-color)
+    .dot { background-color: $blue-pill-base; }
+  }
+  &.entertainment {
+    // -0.85 means 15% opaque
+    background-color: color.adjust($pink-pill-base, $alpha: -0.85);
+    color: $pink-pill-base; // Or var(--pink-pill-text-color)
+    .dot { background-color: $pink-pill-base; }
+  }
+  &.salary {
+    background-color: color.adjust($green-pill-base, $alpha: -0.85);
+    color: $green-pill-base; // Or var(--green-pill-text-color)
+    .dot { background-color: $green-pill-base; }
+  }
+  &.unknown {
+    background-color: color.adjust($orange-pill-base, $alpha: -0.8);
+    color: $orange-pill-base; // Or var(--orange-pill-text-color)
+    .dot { background-color: $orange-pill-base; }
+  }
+}

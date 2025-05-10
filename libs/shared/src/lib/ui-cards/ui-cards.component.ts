@@ -5,6 +5,6 @@ import { CommonModule } from '@angular/common';
   selector: 'ui-ui-cards',
   imports: [CommonModule],
   templateUrl: './ui-cards.component.html',
-  styleUrl: './ui-cards.component.css',
+  styleUrl: './ui-cards.component.scss',
 })
 export class UiCardsComponent {}

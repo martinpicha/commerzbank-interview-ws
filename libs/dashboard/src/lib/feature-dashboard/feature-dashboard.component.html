@@ -1,1 +1,19 @@
-<p>FeatureDashboard works!</p>
+<div class="dashboard-container">
+  <div class="main-column">
+    <ui-transfer-form (transfer)="onTransfer($event)"></ui-transfer-form>
+    <!-- Spacing handled by gap in .main-column -->
+    <ui-transaction-list [transactions]="transactions$ | async"></ui-transaction-list>
+
+    <div *ngIf="loading$ | async" class="status-indicator loading-indicator">Loading transactions...</div>
+    <div *ngIf="error$ | async as error" class="status-indicator error-indicator">
+      Error loading transactions: {{ error.message || error }}
+    </div>
+    <div *ngIf="creating$ | async" class="status-indicator loading-indicator">Processing transfer...</div>
+     <div *ngIf="createError$ | async as createError" class="status-indicator error-indicator">
+      Error creating transfer: {{ createError.message || createError }}
+    </div>
+  </div>
+  <div class="side-column">
+    <ui-standing-orders-promo></ui-standing-orders-promo>
+  </div>
+</div>

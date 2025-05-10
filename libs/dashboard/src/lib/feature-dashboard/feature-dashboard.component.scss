@@ -1,0 +1,51 @@
+// libs/dashboard/feature-dashboard/src/lib/dashboard/dashboard.component.scss
+
+.dashboard-container {
+  display: flex;
+  gap: calc(var(--element-spacing) * 1.5);
+  padding: calc(var(--element-spacing) * 1.5);
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .main-column {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+    gap: calc(var(--element-spacing) * 1.5);
+  }
+
+  .side-column {
+    flex: 1;
+  }
+}
+
+.status-indicator {
+  padding: var(--card-padding);
+  text-align: center;
+  border-radius: var(--border-radius);
+  margin-top: var(--element-spacing);
+  font-weight: 500;
+}
+
+.loading-indicator {
+    background-color: #e0e0e0; // A neutral loading background
+    color: var(--primary-text-color);
+}
+
+.error-indicator {
+    // background-color: lighten(var(--red-text-color), 40%); // REMOVE THIS
+    background-color: var(--error-indicator-background);     // USE THE NEW CSS VARIABLE
+    color: var(--red-text-color);                             // Text remains the solid red
+    border: 1px solid var(--red-text-color);                  // Optional: keep a solid border
+}
+
+// Responsive adjustments
+@media (max-width: 992px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+  .main-column, .side-column {
+    flex: none;
+    width: 100%;
+  }
+}

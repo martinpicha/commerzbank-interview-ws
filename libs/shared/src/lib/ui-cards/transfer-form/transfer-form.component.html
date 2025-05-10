@@ -1,0 +1,41 @@
+<div class="card transfer-card">
+  <div class="account-header">
+    <div>
+      <div class="account-label">Main account</div>
+      <h4>{{ accountName }}</h4>
+      <div class="account-number">{{ accountNumber }}</div>
+    </div>
+    <div class="available-funds">
+      <div class="funds-label">Available funds</div>
+      <div class="funds-amount">
+        <!-- {{ availableFunds | number:'1.2-2':'cs-CZ' }} -->
+        <!-- {{ availableFunds | currency: 'Kč':'symbol':'1.0-0'}} -->
+        {{ availableFunds | currency : 'CZK' : 'Kč' : '1.2-2': 'cs-CZ'}}
+
+      </div>
+    </div>
+  </div>
+
+  <form [formGroup]="transferForm" (ngSubmit)="onSubmit()" novalidate>
+    <div class="form-field">
+      <label for="amount">Money Amount</label>
+      <input id="amount" type="number" formControlName="amount" placeholder="0,00 Kč" />
+      <div *ngIf="transferForm.get('amount')?.invalid && (transferForm.get('amount')?.dirty || transferForm.get('amount')?.touched)" class="error-message">
+        <span *ngIf="transferForm.get('amount')?.errors?.['required']">Amount is required.</span>
+        <span *ngIf="transferForm.get('amount')?.errors?.['min']">Amount must be positive.</span>
+      </div>
+    </div>
+
+    <div class="form-field">
+      <label for="receiver">Receiver</label>
+      <input id="receiver" type="text" formControlName="receiver" placeholder="Receiver account or name" />
+       <div *ngIf="transferForm.get('receiver')?.invalid && (transferForm.get('receiver')?.dirty || transferForm.get('receiver')?.touched)" class="error-message">
+        Receiver is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn-primary">
+      Transfer money
+    </button>
+  </form>
+</div>

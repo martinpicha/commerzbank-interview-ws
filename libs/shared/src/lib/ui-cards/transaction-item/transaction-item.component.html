@@ -1,0 +1,22 @@
+@if (transaction) {
+<div class="transaction-item">
+  <div class="date-who">
+    <span class="date">{{ transaction.date | date : 'dd.MM.' }}</span>
+    <span class="who">{{ transaction.who }}</span>
+  </div>
+  <div class="type-category">
+    <span class="type">{{ transaction.type }}</span>
+    <span class="pill" [ngClass]="transaction.getCategoryPillClass()">
+      <span class="dot"></span>
+      {{ transaction.category }}
+    </span>
+  </div>
+  <div class="amount" [ngClass]="transaction.getAmountColor()">
+    {{ transaction.getFormattedAmount() }}
+  </div>
+</div>
+
+}
+@else {
+  <div>No transactions</div>
+}

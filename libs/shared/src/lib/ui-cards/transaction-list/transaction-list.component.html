@@ -1,0 +1,11 @@
+<div class="card latest-transactions">
+  <h3>Latest transactions</h3>
+  @if (!transactions || transactions.length === 0) {
+  <div class="empty-state">No transactions yet.</div>
+  }
+  @for (tx of transactions; track tx.date.toISOString() + '|' + tx.who + '|' + tx.amount + '|' + tx.category + '|' + tx.type){
+    <ui-transaction-item [transaction]="tx"></ui-transaction-item>
+  }
+
+  <!-- "See more" button not implemented -->
+</div>

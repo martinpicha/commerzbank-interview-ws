@@ -1,0 +1,18 @@
+// libs/shared/ui-cards/src/lib/transaction-list/transaction-list.component.scss
+.card {
+  background-color: var(--card-background); // Uses CSS Var
+  border-radius: var(--border-radius);    // Uses CSS Var
+  padding: var(--card-padding);           // Uses CSS Var
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+h3 {
+  margin-bottom: var(--element-spacing); // Uses CSS Var
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--primary-text-color); // Uses CSS Var
+}
+.empty-state {
+  text-align: center;
+  color: var(--secondary-text-color); // Uses CSS Var
+  padding: 20px;
+}
